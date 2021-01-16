@@ -39,6 +39,9 @@ def watch_remove(data: db.DB, path: str) -> None:
 def watches_check(data: db.DB) -> None:
   watches = data.select_watch()
 
+  if len(watches) == 0:
+    print('\tСписок наблюдаемых файлов пуст')
+
   for watch in watches:
     watch_check(data, watch)
   
