@@ -82,7 +82,8 @@ def get_file_paths(path: str) -> list:
   if not os.path.exists(path):
     return file_paths
   
-  file_paths.append(path)
+  if os.path.isfile(path):
+    file_paths.append(path)
 
   if os.path.isdir(path):
     for file_path in os.listdir(path):
